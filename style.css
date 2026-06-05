@@ -1,38 +1,217 @@
+/* BODY */
+
+body{
+    margin:0;
+    font-family:Georgia, serif;
+    background:#000;
+    color:#fff;
+}
+
+/* OPEN SCREEN */
+
+#openScreen{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    background:#000;
+    padding:20px;
+}
+
+/* TEXT GLOW */
+
+.main-title,
+.sub-title,
+.invite-text,
+.month,
+.date,
+.details,
+.venue,
+.names,
+#countdown,
+.quote,
+.flower,
+h2{
+    animation:softGlow 3s ease-in-out infinite;
+}
+
+@keyframes softGlow{
+
+    0%{
+        opacity:0.85;
+        text-shadow:0 0 5px rgba(255,255,255,.2);
+    }
+
+    50%{
+        opacity:1;
+        text-shadow:
+        0 0 10px rgba(255,255,255,.8),
+        0 0 20px rgba(255,255,255,.3);
+    }
+
+    100%{
+        opacity:0.85;
+        text-shadow:0 0 5px rgba(255,255,255,.2);
+    }
+
+}
+
+.main-title{
+    font-size:30px;
+    color:#FFD700;
+    margin-bottom:10px;
+}
+
+.sub-title{
+    font-size:18px;
+}
+
+.invite-text{
+    color:#ddd;
+    margin-bottom:25px;
+}
+
+/* BUTTON */
+
 .open-btn{
-.typing {
-display: inline-block;
-white-space: nowrap;
-overflow: hidden;
-border-right: 2px solid gold;
-animation: typing 2s steps(5) infinite, blink 0.7s infinite;
-}
-
-@keyframes typing {
-0% { width: 0; }
-50% { width: 100%; }
-100% { width: 0; }
-}
-
-@keyframes blink {
-50% { border-color: transparent; }
-}
-
-border:2px solid gold;
-background:linear-gradient(145deg, transparent, rgba(255,215,0,0.1));
-color:gold;
-
-border-radius:50px;
-cursor:pointer;
-
-transition:0.4s ease;
-letter-spacing:1px;
-
-box-shadow:0 0 10px rgba(255,215,0,0.2);
+    padding:15px 50px;
+    font-size:18px;
+    border:2px solid gold;
+    border-radius:50px;
+    background:transparent;
+    color:gold;
+    cursor:pointer;
+    transition:.4s;
+    box-shadow:0 0 15px rgba(255,215,0,.3);
 }
 
 .open-btn:hover{
-background:gold;
-color:#000;
-transform:scale(1.08);
-box-shadow:0 0 25px gold;
+    background:gold;
+    color:black;
+    transform:scale(1.08);
+    box-shadow:0 0 25px gold;
 }
+
+/* CONTENT */
+
+#weddingContent{
+    display:none;
+    animation:fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* CARD */
+
+.wedding-card{
+    max-width:650px;
+    margin:40px auto;
+    padding:40px 25px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    border-radius:25px;
+    border:3px solid gold;
+}
+
+.wedding-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url("YOUR_IMAGE.jpg") center/cover no-repeat;
+    z-index:0;
+}
+
+.wedding-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.60);
+    z-index:1;
+}
+
+.wedding-card *{
+    position:relative;
+    z-index:2;
+}
+
+.month{
+    color:#FFD700;
+    letter-spacing:3px;
+    font-size:18px;
+}
+
+.date{
+    font-size:75px;
+    font-weight:bold;
+    color:white;
+}
+
+.details{
+    margin-top:10px;
+    font-size:17px;
+}
+
+.venue{
+    margin-top:15px;
+    font-size:17px;
+}
+
+.names{
+    margin-top:20px;
+    font-size:30px;
+    color:#F7E7CE;
+    font-weight:bold;
+}
+
+h2{
+    margin-top:25px;
+}
+
+#countdown{
+    font-size:22px;
+    margin-top:10px;
+    color:white;
+}
+
+.quote{
+    margin-top:25px;
+    color:#ddd;
+    font-style:italic;
+}
+
+.flower{
+    margin-top:20px;
+    font-size:22px;
+    color:gold;
+}
+
+.location-btn{
+    margin-top:20px;
+    display:inline-block;
+    padding:12px 25px;
+    border:2px solid gold;
+    border-radius:30px;
+    color:gold;
+    text-decoration:none;
+    transition:.4s;
+}
+
+.location-btn:hover{
+    background:gold;
+    color:black;
+                                 }
