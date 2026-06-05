@@ -26,7 +26,7 @@ body{
   cursor:pointer;
 }
 
-/* 💍 CARD */
+/* 💍 CARD (FINAL FIXED STRUCTURE) */
 .wedding-card{
   text-align:center;
   padding:40px;
@@ -35,29 +35,26 @@ body{
 
   position:relative;
   border-radius:20px;
-  overflow:hidden;
 
-  /* 🔥 BORDER BACK */
+  overflow:hidden; /* 🔥 IMPORTANT - NO LEAK */
+
+  /* 🔥 GOLD BORDER */
   border:3px solid gold;
-  box-shadow:0 0 15px rgba(255,215,0,0.25);
-
-  background:#111;
+  box-shadow:0 0 20px rgba(255,215,0,0.25);
 }
 
-/* 🔥 IMAGE INSIDE CARD ONLY */
+/* 🔥 BACKGROUND IMAGE (STRICTLY INSIDE CARD ONLY) */
 .wedding-card::before{
   content:"";
   position:absolute;
   inset:0;
 
-  background-image: url("file_00000000c388722f97453bfd91d1655b.png");
-  background-size: cover;
-  background-position: center;
+  background: url("file_00000000c388722f97453bfd91d1655b.png") center/cover no-repeat;
 
   z-index:0;
 }
 
-/* 🔥 DARK OVERLAY */
+/* 🔥 DARK LAYER */
 .wedding-card::after{
   content:"";
   position:absolute;
@@ -66,14 +63,14 @@ body{
   z-index:1;
 }
 
-/* TEXT ON TOP */
+/* 🔥 TEXT ALWAYS TOP */
 .wedding-card *{
   position:relative;
   z-index:2;
   text-shadow:0 3px 10px rgba(0,0,0,0.8);
 }
 
-/* TEXT STYLES */
+/* TEXT COLORS */
 .month{
   font-size:18px;
   letter-spacing:3px;
