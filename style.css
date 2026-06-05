@@ -2,14 +2,16 @@
 body {
   body {
   margin: 0;
-  font-family: Georgia, serif;
+  font-family: Arial, sans-serif;
   text-align: center;
-  color: #fff;
 
-  background: radial-gradient(circle at top, #1a1a1a, #000000 70%);
-
+  background-image: url("background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-
+  
 /* OPEN BOX */
 .open-box{
   padding:40px;
