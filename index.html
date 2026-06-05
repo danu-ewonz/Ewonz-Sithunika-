@@ -13,6 +13,22 @@ body{
   font-family: Georgia, serif;
   background:#0b0b0b;
   color:#fff;
+  overflow:hidden;
+}
+
+/* 🌸 FLOATING PETALS */
+.petal{
+  position:absolute;
+  top:-10px;
+  font-size:20px;
+  color:gold;
+  animation: fall linear infinite;
+  opacity:0.8;
+}
+
+@keyframes fall{
+  0%{transform:translateY(-10vh) rotate(0deg);}
+  100%{transform:translateY(110vh) rotate(360deg);}
 }
 
 /* 🔥 OPEN SCREEN */
@@ -21,45 +37,34 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#0b0b0b;
+  flex-direction:column;
+  background:#000;
 }
 
-/* 🌸 FLOWER FRAME */
-.flower-frame{
-  text-align:center;
-  padding:40px;
-  border-radius:25px;
-
-  background:rgba(0,0,0,0.6);
-  border:2px solid gold;
-
-  box-shadow:0 0 25px rgba(255,215,0,0.2);
-  animation: fadeIn 1.2s ease;
-}
-
-/* TITLE */
+/* TYPE TEXT */
 .main-title{
-  font-size:32px;
+  font-size:30px;
   color:gold;
-  margin-bottom:10px;
-  letter-spacing:2px;
+  text-align:center;
+  white-space:nowrap;
+  overflow:hidden;
+  border-right:2px solid gold;
+  width:0;
+  animation: typing 3s steps(30,end) forwards, blink 0.7s infinite;
 }
 
-/* SUB TEXT */
-.sub-title{
-  font-size:18px;
-  color:#fff;
-  margin-bottom:5px;
+@keyframes typing{
+  from{width:0;}
+  to{width:100%;}
 }
 
-.invite-text{
-  font-size:14px;
-  color:#ccc;
-  margin-bottom:20px;
+@keyframes blink{
+  50%{border-color:transparent;}
 }
 
 /* BUTTON */
 .open-btn{
+  margin-top:20px;
   padding:16px 45px;
   border:2px solid gold;
   background:transparent;
@@ -72,13 +77,12 @@ body{
 .open-btn:hover{
   background:gold;
   color:#000;
-  transform:scale(1.05);
 }
 
 /* 💍 MAIN CONTENT */
 #weddingContent{
   display:none;
-  animation: fadeIn 1.2s ease;
+  animation: fadeIn 1.5s ease forwards;
 }
 
 /* CARD */
@@ -94,21 +98,19 @@ body{
   border-radius:20px;
   border:3px solid gold;
 
-  animation: floatCard 4s ease-in-out infinite;
+  animation: zoomIn 1.2s ease;
 }
 
-/* BACKGROUND IMAGE INSIDE CARD */
+/* BACKGROUND IMAGE */
 .wedding-card::before{
   content:"";
   position:absolute;
   inset:0;
-
-  background: url("./file_00000000c388722f97453bfd91d1655b.png") center/cover no-repeat;
-
+  background:url("./file_00000000c388722f97453bfd91d1655b.png") center/cover no-repeat;
   z-index:0;
 }
 
-/* DARK OVERLAY */
+/* DARK LAYER */
 .wedding-card::after{
   content:"";
   position:absolute;
@@ -117,68 +119,34 @@ body{
   z-index:1;
 }
 
-/* TEXT ON TOP */
+/* TEXT ABOVE */
 .wedding-card *{
   position:relative;
   z-index:2;
-  text-shadow:0 3px 10px rgba(0,0,0,0.8);
 }
 
-/* TEXT STYLE */
-.month{
-  font-size:18px;
-  letter-spacing:3px;
-  color:gold;
-}
-
-.date{
-  font-size:70px;
-  font-weight:bold;
-  margin:10px 0;
-}
-
-.details,
-.venue{
-  font-size:16px;
-  color:#eee;
-  margin:10px 0;
-}
-
+/* NAME GLow */
 .names{
-  font-size:28px;
+  font-size:26px;
   color:gold;
-  margin:20px 0;
-  animation: glow 2.5s infinite;
+  animation: glow 2s infinite;
 }
 
+/* COUNTDOWN */
 #countdown{
-  font-size:24px;
-  margin-top:15px;
+  font-size:22px;
   animation: pulse 1.5s infinite;
 }
 
-.quote{
-  margin-top:20px;
-  font-style:italic;
-  color:#ccc;
-}
-
-.flower{
-  margin-top:20px;
-  font-size:22px;
-  color:gold;
-}
-
-/* ✨ ANIMATIONS */
+/* ANIMATIONS */
 @keyframes fadeIn{
-  from{opacity:0; transform:scale(0.9);}
-  to{opacity:1; transform:scale(1);}
+  from{opacity:0;}
+  to{opacity:1;}
 }
 
-@keyframes floatCard{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-8px);}
-  100%{transform:translateY(0);}
+@keyframes zoomIn{
+  from{transform:scale(0.8); opacity:0;}
+  to{transform:scale(1); opacity:1;}
 }
 
 @keyframes glow{
@@ -199,30 +167,26 @@ body{
 
 <body>
 
+<!-- 🌸 PETALS (JS will add more) -->
+<div class="petal">❀</div>
+<div class="petal" style="left:20%; animation-duration:6s;">❀</div>
+<div class="petal" style="left:40%; animation-duration:8s;">❀</div>
+<div class="petal" style="left:60%; animation-duration:7s;">❀</div>
+<div class="petal" style="left:80%; animation-duration:9s;">❀</div>
+
 <!-- 🔥 OPEN SCREEN -->
-<section id="openScreen">
+<div id="openScreen">
 
-  <div class="flower-frame">
+  <h1 class="main-title" id="typeText"></h1>
 
-    <h1 class="main-title">
-      Danu Ewonz <br>
-      &amp; Sadali Sithunika
-    </h1>
+  <button class="open-btn" onclick="openInvitation()">
+    Open Invitation
+  </button>
 
-    <p class="sub-title">We are getting married</p>
-
-    <p class="invite-text">You are warmly invited to our special day</p>
-
-    <button class="open-btn" onclick="openInvitation()">
-      Open Invitation
-    </button>
-
-  </div>
-
-</section>
+</div>
 
 <!-- 💍 MAIN CONTENT -->
-<section id="weddingContent">
+<div id="weddingContent">
 
   <div class="wedding-card">
 
@@ -243,8 +207,7 @@ body{
       Danu Ewonz & Sadali Sithunika
     </div>
 
-    <h2>Countdown To Our Wedding</h2>
-
+    <h2>Countdown</h2>
     <div id="countdown">Loading...</div>
 
     <div class="quote">
@@ -255,22 +218,34 @@ body{
 
   </div>
 
-</section>
+</div>
 
 <script>
 
+/* TYPE EFFECT */
+const text = "Danu Ewonz & Sadali Sithunika";
+let i = 0;
+
+function type(){
+  if(i < text.length){
+    document.getElementById("typeText").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 100);
+  }
+}
+type();
+
+/* OPEN */
 function openInvitation(){
   document.getElementById("openScreen").style.display = "none";
   document.getElementById("weddingContent").style.display = "block";
-  updateCountdown();
 }
 
+/* COUNTDOWN */
 const countdownEl = document.getElementById("countdown");
-
 const weddingDate = new Date("2026-11-28T19:00:00+05:30").getTime();
 
 function updateCountdown(){
-
   const now = new Date().getTime();
   const distance = weddingDate - now;
 
@@ -279,16 +254,15 @@ function updateCountdown(){
     return;
   }
 
-  const days = Math.floor(distance / (1000*60*60*24));
-  const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-  const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-  const seconds = Math.floor((distance % (1000*60)) / 1000);
+  const d = Math.floor(distance / (1000*60*60*24));
+  const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+  const m = Math.floor((distance%(1000*60*60))/(1000*60));
+  const s = Math.floor((distance%(1000*60))/1000);
 
-  countdownEl.innerHTML =
-    days + " Days " + hours + " Hours " + minutes + " Minutes " + seconds + " Seconds";
+  countdownEl.innerHTML = d+" Days "+h+" Hours "+m+" Minutes "+s+" Seconds";
 }
 
-setInterval(updateCountdown, 1000);
+setInterval(updateCountdown,1000);
 
 </script>
 
