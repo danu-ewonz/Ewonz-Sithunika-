@@ -57,7 +57,7 @@ body{
   animation: floatBtn 3s infinite ease-in-out;
 }
 
-/* hover */
+/* hover effect */
 .open-btn:hover{
   background:gold;
   color:#000;
@@ -65,7 +65,7 @@ body{
   box-shadow:0 0 30px gold, 0 0 60px rgba(255,215,0,0.4);
 }
 
-/* shimmer */
+/* shimmer effect */
 .open-btn::before{
   content:"";
   position:absolute;
@@ -81,25 +81,30 @@ body{
   left:100%;
 }
 
-/* typing effect */
+/* ✨ TYPING EFFECT (FIXED) */
 .typing{
   display:inline-block;
-  white-space:nowrap;
   overflow:hidden;
+  white-space:nowrap;
   border-right:2px solid gold;
-  animation:typing 2s steps(5) infinite, blink 0.7s infinite;
+
+  width:0;
+  animation: typing 2s steps(4) infinite, blink 0.7s infinite;
 }
 
+/* typing animation */
 @keyframes typing{
-  0%{width:0;}
-  50%{width:100%;}
-  100%{width:0;}
+  0%{ width:0; }
+  50%{ width:5ch; }
+  100%{ width:0; }
 }
 
+/* cursor blink */
 @keyframes blink{
-  50%{border-color:transparent;}
+  50%{ border-color:transparent; }
 }
 
+/* floating button */
 @keyframes floatBtn{
   0%{transform:translateY(0px);}
   50%{transform:translateY(-4px);}
