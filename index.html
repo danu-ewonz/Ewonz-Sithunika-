@@ -4,15 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wedding Countdown</title>
-  
+
 <link rel="stylesheet" href="style.css">
-  
+
 <style>
 body{
   margin:0;
-  background:#0b0b0b;
   color:#fff;
   font-family: Georgia, serif;
+
+  /* ✅ BACKGROUND IMAGE FIX */
+  background-image: url("file_00000000c388722f97453bfd91d1655b.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* DARK OVERLAY (make text clear) */
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4);
+  z-index:-1;
 }
 
 /* 🔥 OPEN SCREEN */
@@ -22,7 +39,6 @@ body{
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  background: radial-gradient(circle, #1a1a1a, #000);
   text-align:center;
 }
 
@@ -55,7 +71,7 @@ body{
   padding:30px;
 }
 
-/* Your original design elements */
+/* TEXT STYLES */
 .month{
   font-size:18px;
   letter-spacing:2px;
@@ -66,19 +82,12 @@ body{
   font-size:50px;
   font-weight:bold;
   margin:10px 0;
-  color:#fff;
 }
 
-.details{
+.details, .venue{
   font-size:16px;
   margin:10px 0;
   color:#ddd;
-}
-
-.venue{
-  font-size:16px;
-  margin:10px 0;
-  color:#ccc;
 }
 
 .names{
@@ -87,14 +96,9 @@ body{
   color:gold;
 }
 
-h2{
-  margin-top:20px;
-}
-
 #countdown{
   font-size:22px;
   margin-top:15px;
-  color:#fff;
 }
 
 .quote{
@@ -128,7 +132,6 @@ h2{
 <div class="wedding-card">
 
   <div class="month">NOVEMBER</div>
-
   <div class="date">28</div>
 
   <div class="details">
@@ -161,19 +164,17 @@ h2{
 
 <script>
 
-/* 🔥 OPEN BUTTON FUNCTION */
+/* OPEN BUTTON */
 function openInvitation(){
   document.getElementById("openScreen").style.display = "none";
   document.getElementById("weddingContent").style.display = "block";
 }
 
-/* ⏳ COUNTDOWN */
+/* COUNTDOWN */
 const countdownEl = document.getElementById("countdown");
-
 const weddingDate = new Date("2026-11-28T19:00:00+05:30").getTime();
 
 function updateCountdown(){
-
   const now = new Date().getTime();
   const distance = weddingDate - now;
 
