@@ -1,16 +1,25 @@
-/* 🌸 BODY BACKGROUND */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation</title>
+
+<style>
+
+/* 🌸 BACKGROUND IMAGE */
 body{
   margin:0;
   font-family: Georgia, serif;
   color:#fff;
 
-  background-image: url("file_00000000c388722f97453bfd91d1655b.png") !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
+  background-image: url("file_00000000c388722f97453bfd91d1655b.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* DARK OVERLAY */
+/* DARK OVERLAY FOR TEXT READABILITY */
 body::before{
   content:"";
   position:fixed;
@@ -22,7 +31,7 @@ body::before{
   z-index:-1;
 }
 
-/* 🔥 OPEN SCREEN FIX (IMPORTANT) */
+/* 🔥 OPEN SCREEN */
 #openScreen{
   height:100vh;
   display:flex;
@@ -31,13 +40,9 @@ body::before{
   justify-content:center;
   text-align:center;
 
-  /* FIX: stop background image bleeding */
-  background: #0b0b0b;
-  position: relative;
-  z-index: 2;
+  background: rgba(0,0,0,0.6);
 }
 
-/* OPEN BUTTON */
 .open-btn{
   padding:18px 45px;
   font-size:22px;
@@ -62,22 +67,24 @@ body::before{
   display:none;
 }
 
-/* ✨ WEDDING CARD FIX */
+/* ✨ NO BOX — TEXT FLOAT ON IMAGE */
 .wedding-card{
   text-align:center;
   padding:30px;
-  margin:40px auto;
-  max-width:500px;
+  margin:60px auto;
+  max-width:600px;
 
-  background: rgba(255,255,255,0.08);
-  border: 2px solid rgba(255,215,0,0.6);
-  border-radius: 20px;
-
-  backdrop-filter: blur(6px);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
-/* TEXT */
+/* 🌟 TEXT SHADOW FOR READABILITY */
+.wedding-card *{
+  text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+}
+
+/* TEXT STYLES */
 .month{
   font-size:18px;
   letter-spacing:3px;
@@ -85,7 +92,7 @@ body::before{
 }
 
 .date{
-  font-size:60px;
+  font-size:70px;
   font-weight:bold;
   margin:10px 0;
 }
@@ -93,28 +100,119 @@ body::before{
 .details, .venue{
   font-size:16px;
   margin:10px 0;
-  color:#ddd;
+  color:#eee;
 }
 
 .names{
-  font-size:26px;
+  font-size:28px;
   margin:20px 0;
   color:gold;
 }
 
 #countdown{
-  font-size:22px;
+  font-size:24px;
   margin-top:15px;
 }
 
 .quote{
   margin-top:20px;
   font-style:italic;
-  color:#aaa;
+  color:#ccc;
 }
 
 .flower{
   margin-top:20px;
-  font-size:20px;
+  font-size:22px;
   color:gold;
 }
+
+</style>
+
+</head>
+
+<body>
+
+<!-- 🔥 OPEN SCREEN -->
+<div id="openScreen">
+  <h1 style="color:gold;">Wedding Invitation</h1>
+  <button class="open-btn" onclick="openInvitation()">
+    Open Invitation
+  </button>
+</div>
+
+<!-- 💍 MAIN CONTENT -->
+<div id="weddingContent">
+
+  <div class="wedding-card">
+
+    <div class="month">NOVEMBER</div>
+    <div class="date">28</div>
+
+    <div class="details">
+      SATURDAY | 7:00 PM<br>
+      2026
+    </div>
+
+    <div class="venue">
+      Grace Palace Hotel<br>
+      Colombo, Sri Lanka
+    </div>
+
+    <div class="names">
+      Danu Ewonz & Sadali Sithunika
+    </div>
+
+    <h2>Countdown To Our Wedding</h2>
+
+    <div id="countdown">Loading...</div>
+
+    <div class="quote">
+      "Two hearts, one soul, one journey."
+    </div>
+
+    <div class="flower">❦ ❀ ❦</div>
+
+  </div>
+
+</div>
+
+<script>
+
+/* OPEN */
+function openInvitation(){
+  document.getElementById("openScreen").style.display = "none";
+  document.getElementById("weddingContent").style.display = "block";
+
+  updateCountdown();
+}
+
+/* COUNTDOWN */
+const countdownEl = document.getElementById("countdown");
+
+const weddingDate = new Date("2026-11-28T19:00:00+05:30").getTime();
+
+function updateCountdown(){
+
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+
+  if(distance <= 0){
+    countdownEl.innerHTML = "We Are Married ❤️";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000*60*60*24));
+  const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+  const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+  const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+  countdownEl.innerHTML =
+    days+" Days "+hours+" Hours "+minutes+" Minutes "+seconds+" Seconds";
+}
+
+setInterval(updateCountdown, 1000);
+
+</script>
+
+</body>
+</html>
