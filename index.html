@@ -106,69 +106,99 @@ Sadali Sithunika
 <div class="invite">
 REQUEST THE HONOUR OF YOUR PRESENCE<br>
 AT THEIR WEDDING CELEBRATION
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Countdown</title>
 
-<div class="month">
-NOVEMBER
-</div>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff0f5;
+      text-align: center;
+    }
 
-<div class="date">
-28
-</div>
+    .wedding-card {
+      max-width: 500px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
 
-<div class="details">
-SATURDAY | 7:00 PM<br>
-2026
-</div>
+    .month {
+      font-size: 20px;
+      color: #d63384;
+      font-weight: bold;
+    }
 
-<div class="venue">
-Grace Palace Hotel<br>
-Piliyandala, Colombo, Sri Lanka
-</div>
-    
+    .date {
+      font-size: 60px;
+      font-weight: bold;
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .details, .venue {
+      font-size: 16px;
+      color: #555;
+      margin: 10px 0;
+    }
+
+    h2 {
+      margin-top: 25px;
+      color: #d63384;
+    }
+
+    #countdown {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 15px;
+      color: #222;
+    }
+
+    .quote {
+      margin-top: 30px;
+      font-style: italic;
+      color: #777;
+    }
+
+    .flower {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<div class="wedding-card">
+
+  <div class="month">NOVEMBER</div>
+
+  <div class="date">28</div>
+
+  <div class="details">
+    SATURDAY | 7:00 PM<br>
+    2026
+  </div>
+
+  <div class="venue">
+    Grace Palace Hotel<br>
+    Piliyandala, Colombo, Sri Lanka
+  </div>
+
   <h2>Countdown To Our Wedding</h2>
 
-<div id="countdown">
-  Loading...
-</div>
+  <div id="countdown">Loading...</div>
 
-<script>
-const weddingDate = new Date("November 28, 2026 19:00:00").getTime();
+  <div class="quote">
+    "Two hearts, one soul, one beautiful journey."
+  </div>
 
-const timer = setInterval(function() {
-
-  const now = new Date().getTime();
-  const distance = weddingDate - now;
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  document.getElementById("countdown").innerHTML =
-    days + " Days " +
-    hours + " Hours " +
-    minutes + " Minutes " +
-    seconds + " Seconds ";
-
-  if (distance < 0) {
-    clearInterval(timer);
-    document.getElementById("countdown").innerHTML =
-    "We Are Married ❤️";
-  }
-
-}, 1000);
-</script>
-
-<div class="quote">
-"Two hearts, one soul, one beautiful journey."
-</div>
-
-<div class="flower" style="margin-top:40px;">
-❦ ❀ ❦
-</div>
-
-</section>
-
-</body>
-</html>
+  <div class="flower">❦ ❀ ❦</
