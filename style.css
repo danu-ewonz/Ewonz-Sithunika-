@@ -1,6 +1,21 @@
 .open-btn{
-  padding:16px 50px;
-  font-size:18px;
+  .typing {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid gold;
+  animation: typing 2s steps(5) infinite, blink 0.7s infinite;
+}
+
+@keyframes typing {
+  0% { width: 0; }
+  50% { width: 100%; }
+  100% { width: 0; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
 
   border:2px solid gold;
   background:linear-gradient(145deg, transparent, rgba(255,215,0,0.1));
