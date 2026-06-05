@@ -66,3 +66,13 @@ body{
     color:#c8a96b;
     font-family:'Playfair Display', serif;
 }
+
+.wedding-card{
+    max-width:900px;
+    margin:40px auto;
+    padding:60px 30px;
+    border:2px solid #c8a96b;
+    background:#fffdf9;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    position:relative;
+}
