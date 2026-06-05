@@ -1,29 +1,34 @@
 function openInvitation(){
   document.getElementById("openScreen").style.display = "none";
   document.getElementById("weddingContent").style.display = "block";
-  updateCountdown();
+
+  startCountdown();
 }
 
 /* COUNTDOWN */
-const countdownEl = document.getElementById("countdown");
-const weddingDate = new Date("2026-11-28T19:00:00+05:30").getTime();
+function startCountdown(){
 
-function updateCountdown(){
-  const now = new Date().getTime();
-  const distance = weddingDate - now;
+  const countdownEl = document.getElementById("countdown");
+  const weddingDate = new Date("2026-11-28T19:00:00+05:30").getTime();
 
-  if(distance <= 0){
-    countdownEl.innerHTML = "We Are Married ❤️";
-    return;
+  function update(){
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if(distance <= 0){
+      countdownEl.innerHTML = "We Are Married ❤️";
+      return;
+    }
+
+    const d = Math.floor(distance / (1000*60*60*24));
+    const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    const m = Math.floor((distance%(1000*60*60))/(1000*60));
+    const s = Math.floor((distance%(1000*60))/1000);
+
+    countdownEl.innerHTML =
+      `${d} Days ${h} Hours ${m} Minutes ${s} Seconds`;
   }
 
-  const d = Math.floor(distance / (1000*60*60*24));
-  const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-  const m = Math.floor((distance%(1000*60*60))/(1000*60));
-  const s = Math.floor((distance%(1000*60))/1000);
-
-  countdownEl.innerHTML =
-    `${d} Days ${h} Hours ${m} Minutes ${s} Seconds`;
+  update();
+  setInterval(update, 1000);
 }
-
-setInterval(updateCountdown,1000);
