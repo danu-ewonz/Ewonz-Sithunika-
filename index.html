@@ -123,6 +123,40 @@ SATURDAY | 7:00 PM<br>
 Grace Palace Hotel<br>
 Piliyandala, Colombo, Sri Lanka
 </div>
+    
+  <h2>Countdown To Our Wedding</h2>
+
+<div id="countdown">
+  Loading...
+</div>
+
+<script>
+const weddingDate = new Date("November 28, 2026 19:00:00").getTime();
+
+const timer = setInterval(function() {
+
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+    days + " Days " +
+    hours + " Hours " +
+    minutes + " Minutes " +
+    seconds + " Seconds ";
+
+  if (distance < 0) {
+    clearInterval(timer);
+    document.getElementById("countdown").innerHTML =
+    "We Are Married ❤️";
+  }
+
+}, 1000);
+</script>
 
 <div class="quote">
 "Two hearts, one soul, one beautiful journey."
