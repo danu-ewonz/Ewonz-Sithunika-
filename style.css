@@ -1,17 +1,8 @@
 /* BODY */
 body {
-  body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  text-align: center;
-
-  background-image: url("file_00000000c388722f97453bfd91d1655b.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-  
+  body{
+    background: red !important;
+} 
 /* OPEN BOX */
 .open-box{
   padding:40px;
