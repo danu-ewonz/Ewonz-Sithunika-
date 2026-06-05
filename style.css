@@ -1,8 +1,13 @@
 /* BODY */
 body {
-  body{
-  background:red !important;
-}, #fff0f5, #ffffff);
+  body {
+  margin: 0;
+  font-family: Georgia, serif;
+  text-align: center;
+  color: #fff;
+
+  background: radial-gradient(circle at top, #1a1a1a, #000000 70%);
+
 }
 
 /* OPEN BOX */
