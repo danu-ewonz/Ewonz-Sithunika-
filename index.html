@@ -1,39 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<title>Danu & Sadali Wedding</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Countdown</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #fff0f5, #ffffff);
+      text-align: center;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    .wedding-card {
+      width: 90%;
+      max-width: 500px;
+      margin: 60px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 25px;
+      border: 3px solid gold;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
 
-<style>
+    .month {
+      font-size: 20px;
+      color: #d63384;
+      font-weight: bold;
+    }
 
-body{
-    margin:0;
-    background:#f8f4ee;
-    color:#5a4634;
-    text-align:center;
-    font-family:'Montserrat',sans-serif;
-}
+    .date {
+      font-size: 60px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
 
-.hero{
-    padding:80px 20px;
-}
+    .details, .venue {
+      color: #555;
+      margin: 10px 0;
+    }
 
-.family{
-    letter-spacing:3px;
-    font-size:12px;
-}
+    h2 {
+      color: #d63384;
+      margin-top: 20px;
+    }
 
-.names{
-    font-family:'Playfair Display',serif;
-    font-size:60px;
-    line-height:1.2;
+    #countdown {
+      font-size: 25px;
+      font-weight: bold;
+      margin-top: 15px;
+      color: #222;
+    }
+
+    .quote {
+      margin-top: 25px;
+      font-style: italic;
+      color: #777;
+    }
+
+    .flower {
+      margin-top: 15px;
+      font-size: 22px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<div class="wedding-card">
+
+  <div class="month">NOVEMBER</div>
+
+  <div class="date">28</div>
+
+  <div class="details">
+    SATURDAY | 7:00 PM<br>
+    2026
+  </div>
+
+  <div class="venue">
+    Grace Palace Hotel<br>
+    Piliyandala, Colombo, Sri Lanka
+  </div>
+
+  <h2>Countdown To Our Wedding</h2>
+
+  <div id="countdown">Loading...</div>
+
+  <div class="quote">
+    "Two hearts, one soul, one beautiful journey."
+  </div>
+
+  <div class="flower">❦ ❀ ❦</div>
+
+</div>
+
+<script>
+const weddingDate = new Date("2026-11-28T19:00:00+05:30").getTime();
+
+const timer = setInterval(() => {
+
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+
+  if (distance <= 0) {
+    clearInterval(timer);
+    document.getElementById("countdown").innerHTML = "We Are Married ❤️";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+    days + " Days " +
+    hours + " Hours " +
+    minutes + " Minutes " +
+    seconds + " Seconds";
+
+}, 1000);
+</script>
+
+</body>
+</html>
     margin-top:30px;
 }
 
