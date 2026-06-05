@@ -1,4 +1,3 @@
-/* 🌑 BODY */
 body{
   margin:0;
   font-family: Georgia, serif;
@@ -6,7 +5,7 @@ body{
   color:#fff;
 }
 
-/* 🔥 OPEN SCREEN */
+/* OPEN SCREEN */
 #openScreen{
   height:100vh;
   display:flex;
@@ -17,10 +16,28 @@ body{
   text-align:center;
 }
 
-.main-title{
+/* ✨ TYPING NAMES */
+.typing-name{
   font-size:28px;
   color:gold;
-  margin-bottom:10px;
+
+  white-space:nowrap;
+  overflow:hidden;
+  border-right:2px solid gold;
+
+  width:0;
+  animation: typing 3s steps(30) infinite, blink 0.7s infinite;
+}
+
+/* typing animation */
+@keyframes typing{
+  0%{width:0;}
+  50%{width:100%;}
+  100%{width:0;}
+}
+
+@keyframes blink{
+  50%{border-color:transparent;}
 }
 
 .sub-title{
@@ -34,7 +51,7 @@ body{
   margin-bottom:20px;
 }
 
-/* 💎 OPEN BUTTON */
+/* 💎 OPEN BUTTON (NO typing here) */
 .open-btn{
   padding:16px 55px;
   font-size:18px;
@@ -48,70 +65,18 @@ body{
   color:gold;
 
   cursor:pointer;
-  position:relative;
-  overflow:hidden;
-
   transition:0.4s ease;
   box-shadow:0 0 15px rgba(255,215,0,0.25);
-
-  animation: floatBtn 3s infinite ease-in-out;
 }
 
-/* hover effect */
 .open-btn:hover{
   background:gold;
   color:#000;
   transform:scale(1.08);
-  box-shadow:0 0 30px gold, 0 0 60px rgba(255,215,0,0.4);
+  box-shadow:0 0 30px gold;
 }
 
-/* shimmer effect */
-.open-btn::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
-  transition:0.5s;
-}
-
-.open-btn:hover::before{
-  left:100%;
-}
-
-/* ✨ TYPING EFFECT (FIXED) */
-.typing{
-  display:inline-block;
-  overflow:hidden;
-  white-space:nowrap;
-  border-right:2px solid gold;
-
-  width:0;
-  animation: typing 2s steps(4) infinite, blink 0.7s infinite;
-}
-
-/* typing animation */
-@keyframes typing{
-  0%{ width:0; }
-  50%{ width:5ch; }
-  100%{ width:0; }
-}
-
-/* cursor blink */
-@keyframes blink{
-  50%{ border-color:transparent; }
-}
-
-/* floating button */
-@keyframes floatBtn{
-  0%{transform:translateY(0px);}
-  50%{transform:translateY(-4px);}
-  100%{transform:translateY(0px);}
-}
-
-/* 💍 MAIN CONTENT */
+/* CONTENT */
 #weddingContent{
   display:none;
   padding:20px;
@@ -123,46 +88,13 @@ body{
   padding:40px;
   margin:60px auto;
   max-width:600px;
-
-  position:relative;
-  overflow:hidden;
-
   border-radius:20px;
   border:3px solid gold;
-}
-
-/* BACKGROUND IMAGE */
-.wedding-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url("./file_00000000c388722f97453bfd91d1655b.png") center/cover no-repeat;
-  z-index:0;
-}
-
-.wedding-card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  z-index:1;
-}
-
-.wedding-card *{
   position:relative;
-  z-index:2;
 }
 
-.month{ font-size:18px; color:gold; letter-spacing:2px; }
-
-.date{ font-size:65px; font-weight:bold; margin:10px 0; }
-
-.details, .venue{ font-size:16px; color:#eee; margin:10px 0; }
-
-.names{ font-size:26px; color:gold; }
-
-#countdown{ font-size:22px; color:#fff; margin-top:10px; }
-
-.quote{ margin-top:20px; font-style:italic; color:#ccc; }
-
-.flower{ margin-top:20px; font-size:20px; color:gold; }
+/* COUNTDOWN */
+#countdown{
+  font-size:22px;
+  color:gold;
+}
