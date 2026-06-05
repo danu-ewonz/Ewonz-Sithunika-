@@ -1,12 +1,12 @@
-/* 🌑 FULL PAGE BACKGROUND = PLAIN */
+/* 🌑 FULL PAGE = NO IMAGE */
 body{
   margin:0;
   font-family: Georgia, serif;
-  background:#0b0b0b;
+  background:#0b0b0b;   /* clean outside */
   color:#fff;
 }
 
-/* 🔥 OPEN SCREEN */
+/* OPEN SCREEN */
 #openScreen{
   height:100vh;
   display:flex;
@@ -16,7 +16,7 @@ body{
   background:#000;
 }
 
-/* OPEN BUTTON */
+/* BUTTON */
 .open-btn{
   padding:18px 45px;
   border:2px solid gold;
@@ -26,7 +26,7 @@ body{
   cursor:pointer;
 }
 
-/* 💍 CARD = ONLY PLACE IMAGE SHOWS */
+/* 💍 CARD (ONLY IMAGE INSIDE BORDER) */
 .wedding-card{
   text-align:center;
   padding:40px;
@@ -36,16 +36,18 @@ body{
   position:relative;
   overflow:hidden;
 
-  border:none;
   border-radius:20px;
 
-  /* 🔥 BACKGROUND IMAGE ONLY INSIDE BORDER */
+  /* ❌ IMPORTANT: NO BODY IMAGE */
+  background:#111;
+
+  /* 🔥 ONLY INSIDE CARD IMAGE */
   background-image: url("file_00000000c388722f97453bfd91d1655b.png");
   background-size: cover;
   background-position: center;
 }
 
-/* DARK OVERLAY INSIDE CARD */
+/* DARK LAYER INSIDE CARD */
 .wedding-card::before{
   content:"";
   position:absolute;
@@ -63,7 +65,3 @@ body{
   z-index:1;
   text-shadow:0 3px 10px rgba(0,0,0,0.8);
 }
-
-/* TEXT */
-.month{ color:gold; }
-.names{ color:gold; }
