@@ -1,10 +1,59 @@
-.wedding-card{
-  position:relative;
-  overflow:hidden;
-  border:3px solid gold;
-  border-radius:20px;
+/* 🌑 PAGE */
+body{
+  margin:0;
+  font-family: Georgia, serif;
+  background:#0b0b0b;
+  color:#fff;
 }
 
+/* 🔥 OPEN SCREEN */
+#openScreen{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  background:#000;
+}
+
+/* BUTTON */
+.open-btn{
+  padding:18px 45px;
+  border:2px solid gold;
+  background:transparent;
+  color:gold;
+  border-radius:40px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.open-btn:hover{
+  background:gold;
+  color:#000;
+  transform:scale(1.05);
+}
+
+/* 💍 CARD (MAIN FIX) */
+.wedding-card{
+  text-align:center;
+  padding:40px;
+  margin:60px auto;
+  max-width:600px;
+
+  position:relative;
+  overflow:hidden;
+
+  border-radius:20px;
+
+  /* 🔥 GOLD BORDER */
+  border:3px solid gold;
+  box-shadow:0 0 20px rgba(255,215,0,0.25);
+
+  /* animation */
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+/* 🔥 BACKGROUND IMAGE (STRICT INSIDE CARD) */
 .wedding-card::before{
   content:"";
   position:absolute;
@@ -15,15 +64,91 @@
   z-index:0;
 }
 
+/* 🔥 DARK OVERLAY */
 .wedding-card::after{
   content:"";
   position:absolute;
   inset:0;
+
   background:rgba(0,0,0,0.55);
+
   z-index:1;
 }
 
+/* TEXT ABOVE IMAGE */
 .wedding-card *{
   position:relative;
   z-index:2;
+  text-shadow:0 3px 10px rgba(0,0,0,0.8);
+}
+
+/* TEXT STYLES */
+.month{
+  font-size:18px;
+  letter-spacing:3px;
+  color:gold;
+}
+
+.date{
+  font-size:70px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+.details,
+.venue{
+  font-size:16px;
+  color:#eee;
+  margin:10px 0;
+}
+
+.names{
+  font-size:28px;
+  color:gold;
+  margin:20px 0;
+
+  animation: glow 2.5s ease-in-out infinite;
+}
+
+#countdown{
+  font-size:24px;
+  margin-top:15px;
+
+  animation: pulse 1.5s infinite;
+}
+
+.quote{
+  margin-top:20px;
+  font-style:italic;
+  color:#ccc;
+}
+
+.flower{
+  margin-top:20px;
+  font-size:22px;
+  color:gold;
+}
+
+/* ✨ ANIMATIONS */
+@keyframes floatCard{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+  100%{transform:translateY(0);}
+}
+
+@keyframes glow{
+  0%{text-shadow:0 0 5px gold;}
+  50%{text-shadow:0 0 20px gold;}
+  100%{text-shadow:0 0 5px gold;}
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+  100%{transform:scale(1);}
+}
+
+/* 💡 HIDDEN MAIN SECTION */
+#weddingContent{
+  display:none;
 }
