@@ -5,7 +5,9 @@ body{
     color:#fff;
 }
 
-/* OPEN SCREEN */
+/* =========================
+   OPEN SCREEN ANIMATION
+========================= */
 #openScreen{
     height:100vh;
     display:flex;
@@ -13,25 +15,57 @@ body{
     justify-content:center;
     align-items:center;
     text-align:center;
+
+    animation:fadeIn 1.5s ease;
 }
 
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* TEXT */
 .main-title{
     font-size:28px;
     color:#F7E7CE;
+
+    animation:slideDown 1.2s ease;
 }
 
 .sub-title{
     font-size:18px;
     color:#ddd;
+
+    animation:slideDown 1.5s ease;
 }
 
 .invite-text{
     font-size:14px;
     color:#aaa;
-    margin-bottom:20px;
+
+    animation:slideDown 1.8s ease;
 }
 
-/* BUTTON */
+@keyframes slideDown{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   BUTTON ANIMATION
+========================= */
 .open-btn{
     padding:14px 45px;
     border:2px solid #F7E7CE;
@@ -39,17 +73,45 @@ body{
     color:#F7E7CE;
     border-radius:40px;
     cursor:pointer;
-    transition:0.3s;
+    transition:0.4s;
+
+    animation:zoomIn 2s ease;
+}
+
+@keyframes zoomIn{
+    from{
+        opacity:0;
+        transform:scale(0.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 .open-btn:hover{
     background:#F7E7CE;
     color:#000;
+    transform:scale(1.05);
 }
 
-/* CONTENT */
+/* =========================
+   INVITATION PAGE
+========================= */
 #weddingContent{
     display:none;
+    animation:fadeInContent 1.2s ease;
+}
+
+@keyframes fadeInContent{
+    from{
+        opacity:0;
+        transform:scale(0.95);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 /* CARD */
@@ -62,21 +124,31 @@ body{
     border-radius:20px;
     border:2px solid #F7E7CE;
     overflow:hidden;
+
+    animation:cardUp 1.5s ease;
 }
 
-/* ✅ BACKGROUND IMAGE FIX */
+@keyframes cardUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* BACKGROUND IMAGE */
 .wedding-card::before{
     content:"";
     position:absolute;
     inset:0;
-    background-image:url("./file_00000000c388722f97453bfd91d1655b.png");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    background:url("./file_00000000c388722f97453bfd91d1655b.png") center/cover no-repeat;
     z-index:0;
 }
 
-/* DARK OVERLAY */
+/* OVERLAY */
 .wedding-card::after{
     content:"";
     position:absolute;
@@ -94,32 +166,37 @@ body{
 .month{
     color:#F7E7CE;
     letter-spacing:2px;
+
+    animation:fadeIn 2s ease;
 }
 
 .date{
     font-size:70px;
     color:#fff;
+
+    animation:pop 1.5s ease;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(0.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
 }
 
 .details,
-.venue{
-    font-size:15px;
-    color:#ddd;
-}
-
-.names{
-    font-size:26px;
-    color:#F7E7CE;
-    margin-top:15px;
-}
-
-#countdown{
-    font-size:20px;
-    margin-top:10px;
-}
-
+.venue,
+.names,
+#countdown,
 .quote{
-    margin-top:20px;
-    color:#ccc;
-    font-style:italic;
-    }
+    animation:fadeIn 2.2s ease;
+}
+
+/* BUTTON SMOOTH */
+.open-btn:hover{
+    transform:scale(1.08);
+}
