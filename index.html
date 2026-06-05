@@ -3,25 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kalpa & Sadali Wedding Invitation</title>
+<title>Wedding Invitation</title>
 
 <link rel="stylesheet" href="style.css">
-
 </head>
+
 <body>
 
+<!-- OPEN SCREEN -->
 <div id="openScreen">
 
     <h1 class="main-title">
-        Kalpa Mihiranga ❤️ Sadali Sithunika
+        Danu Ewonz ❤️ Sadali Sithunika
     </h1>
 
-    <p class="sub-title">
-        We Are Getting Married
-    </p>
+    <p class="sub-title">We Are Getting Married</p>
 
     <p class="invite-text">
-        You Are Warmly Invited To Our Special Day
+        You are warmly invited to our special day
     </p>
 
     <button class="open-btn" onclick="openInvitation()">
@@ -30,6 +29,7 @@
 
 </div>
 
+<!-- INVITATION -->
 <div id="weddingContent">
 
     <div class="wedding-card">
@@ -43,32 +43,24 @@
             2026
         </div>
 
+        <!-- LOCATION TEXT INSIDE INVITE -->
         <div class="venue">
-            Grace Palace Hotel<br>
-            Piliyandala, Colombo, Sri Lanka
+            📍 Grace Palace Hotel, Piliyandala, Colombo, Sri Lanka
         </div>
 
         <div class="names">
-            Kalpa Mihiranga ❤️ Sadali Sithunika
+            Danu Ewonz ❤️ Sadali Sithunika
         </div>
 
         <h2>Countdown To Our Wedding</h2>
 
         <div id="countdown">Loading...</div>
 
-        <a class="location-btn"
-           href="https://maps.google.com"
-           target="_blank">
-           📍 View Location
-        </a>
-
         <div class="quote">
-            "Together Is A Beautiful Place To Be."
+            "Together is a beautiful journey."
         </div>
 
-        <div class="flower">
-            ❦ ❀ ❦
-        </div>
+        <div class="flower">❦ ❀ ❦</div>
 
     </div>
 
@@ -81,36 +73,31 @@ function openInvitation(){
     document.getElementById("weddingContent").style.display="block";
 }
 
-const countdownEl=document.getElementById("countdown");
-
-const weddingDate=
-new Date("2026-11-28T18:00:00+05:30").getTime();
+/* COUNTDOWN */
+const countdownEl = document.getElementById("countdown");
+const weddingDate = new Date("2026-11-28T18:00:00+05:30").getTime();
 
 function updateCountdown(){
 
-    const now=new Date().getTime();
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
 
-    const distance=weddingDate-now;
-
-    if(distance<=0){
-        countdownEl.innerHTML="We Are Married ❤️";
+    if(distance <= 0){
+        countdownEl.innerHTML = "We Are Married ❤️";
         return;
     }
 
-    const d=Math.floor(distance/(1000*60*60*24));
-    const h=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-    const m=Math.floor((distance%(1000*60*60))/(1000*60));
-    const s=Math.floor((distance%(1000*60))/1000);
+    const d = Math.floor(distance/(1000*60*60*24));
+    const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    const m = Math.floor((distance%(1000*60*60))/(1000*60));
+    const s = Math.floor((distance%(1000*60))/1000);
 
-    countdownEl.innerHTML=
-    d+" Days "+
-    h+" Hours "+
-    m+" Minutes "+
-    s+" Seconds";
+    countdownEl.innerHTML =
+        d+" Days "+h+" Hours "+m+" Minutes "+s+" Seconds";
 }
 
-updateCountdown();
 setInterval(updateCountdown,1000);
+updateCountdown();
 
 </script>
 
