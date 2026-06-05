@@ -5,67 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wedding Countdown</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #fff0f5, #ffffff);
-      text-align: center;
-    }
-
-    .wedding-card {
-      width: 90%;
-      max-width: 500px;
-      margin: 60px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 25px;
-      border: 3px solid gold;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-
-    .month {
-      font-size: 20px;
-      color: #d63384;
-      font-weight: bold;
-    }
-
-    .date {
-      font-size: 60px;
-      font-weight: bold;
-      margin: 10px 0;
-    }
-
-    .details, .venue {
-      color: #555;
-      margin: 10px 0;
-      font-size: 16px;
-    }
-
-    h2 {
-      color: #d63384;
-      margin-top: 20px;
-    }
-
-    #countdown {
-      font-size: 24px;
-      font-weight: bold;
-      margin-top: 15px;
-      color: #222;
-    }
-
-    .quote {
-      margin-top: 25px;
-      font-style: italic;
-      color: #777;
-    }
-
-    .flower {
-      margin-top: 15px;
-      font-size: 22px;
-    }
-  </style>
-
+  <!-- CSS link -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -86,6 +27,11 @@
     Piliyandala, Colombo, Sri Lanka
   </div>
 
+  <!-- 💍 NAMES -->
+  <div class="names">
+    Danu Ewonz ❤️ Sadali Sithunika
+  </div>
+
   <h2>Countdown To Our Wedding</h2>
 
   <div id="countdown">Loading...</div>
@@ -101,10 +47,10 @@
 <script>
 const countdownEl = document.getElementById("countdown");
 
-// Sri Lanka time fixed
 const weddingDate = new Date("2026-11-28T19:00:00+05:30").getTime();
 
 function updateCountdown() {
+
   const now = new Date().getTime();
   const distance = weddingDate - now;
 
@@ -125,7 +71,6 @@ function updateCountdown() {
     seconds + " Seconds";
 }
 
-// run immediately + every second
 updateCountdown();
 setInterval(updateCountdown, 1000);
 </script>
