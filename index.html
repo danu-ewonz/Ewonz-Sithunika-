@@ -7,7 +7,7 @@
 
 <style>
 
-/* 🌑 BODY */
+/* 🌑 PAGE */
 body{
   margin:0;
   font-family: Georgia, serif;
@@ -21,22 +21,35 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#000;
-  flex-direction:column;
+  background:#0b0b0b;
+}
+
+/* 🌸 FLOWER FRAME */
+.flower-frame{
+  text-align:center;
+  padding:40px;
+  border-radius:25px;
+
+  background:rgba(0,0,0,0.6);
+  border:2px solid gold;
+
+  box-shadow:0 0 25px rgba(255,215,0,0.2);
+  animation: fadeIn 1.2s ease;
 }
 
 /* TITLE */
 .main-title{
-  font-size:28px;
+  font-size:32px;
   color:gold;
-  text-align:center;
   margin-bottom:10px;
+  letter-spacing:2px;
 }
 
 /* SUB TEXT */
 .sub-title{
   font-size:18px;
   color:#fff;
+  margin-bottom:5px;
 }
 
 .invite-text{
@@ -59,11 +72,13 @@ body{
 .open-btn:hover{
   background:gold;
   color:#000;
+  transform:scale(1.05);
 }
 
-/* 💍 MAIN */
+/* 💍 MAIN CONTENT */
 #weddingContent{
   display:none;
+  animation: fadeIn 1.2s ease;
 }
 
 /* CARD */
@@ -78,14 +93,18 @@ body{
 
   border-radius:20px;
   border:3px solid gold;
+
+  animation: floatCard 4s ease-in-out infinite;
 }
 
-/* BACKGROUND IMAGE INSIDE CARD ONLY */
+/* BACKGROUND IMAGE INSIDE CARD */
 .wedding-card::before{
   content:"";
   position:absolute;
   inset:0;
-  background:url("./file_00000000c388722f97453bfd91d1655b.png") center/cover no-repeat;
+
+  background: url("./file_00000000c388722f97453bfd91d1655b.png") center/cover no-repeat;
+
   z-index:0;
 }
 
@@ -102,17 +121,18 @@ body{
 .wedding-card *{
   position:relative;
   z-index:2;
+  text-shadow:0 3px 10px rgba(0,0,0,0.8);
 }
 
 /* TEXT STYLE */
 .month{
   font-size:18px;
+  letter-spacing:3px;
   color:gold;
-  letter-spacing:2px;
 }
 
 .date{
-  font-size:65px;
+  font-size:70px;
   font-weight:bold;
   margin:10px 0;
 }
@@ -125,15 +145,16 @@ body{
 }
 
 .names{
-  font-size:26px;
+  font-size:28px;
   color:gold;
   margin:20px 0;
+  animation: glow 2.5s infinite;
 }
 
 #countdown{
-  font-size:22px;
+  font-size:24px;
   margin-top:15px;
-  color:#fff;
+  animation: pulse 1.5s infinite;
 }
 
 .quote{
@@ -144,8 +165,32 @@ body{
 
 .flower{
   margin-top:20px;
-  font-size:20px;
+  font-size:22px;
   color:gold;
+}
+
+/* ✨ ANIMATIONS */
+@keyframes fadeIn{
+  from{opacity:0; transform:scale(0.9);}
+  to{opacity:1; transform:scale(1);}
+}
+
+@keyframes floatCard{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+  100%{transform:translateY(0);}
+}
+
+@keyframes glow{
+  0%{text-shadow:0 0 5px gold;}
+  50%{text-shadow:0 0 20px gold;}
+  100%{text-shadow:0 0 5px gold;}
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+  100%{transform:scale(1);}
 }
 
 </style>
@@ -155,26 +200,29 @@ body{
 <body>
 
 <!-- 🔥 OPEN SCREEN -->
-<div id="openScreen">
+<section id="openScreen">
 
-  <h1 class="main-title">
-    Danu Ewonz & Sadali Sithunika
-  </h1>
+  <div class="flower-frame">
 
-  <p class="sub-title">We are getting married</p>
+    <h1 class="main-title">
+      Danu Ewonz <br>
+      &amp; Sadali Sithunika
+    </h1>
 
-  <p class="invite-text">
-    You are warmly invited to our special day
-  </p>
+    <p class="sub-title">We are getting married</p>
 
-  <button class="open-btn" onclick="openInvitation()">
-    Open Invitation
-  </button>
+    <p class="invite-text">You are warmly invited to our special day</p>
 
-</div>
+    <button class="open-btn" onclick="openInvitation()">
+      Open Invitation
+    </button>
+
+  </div>
+
+</section>
 
 <!-- 💍 MAIN CONTENT -->
-<div id="weddingContent">
+<section id="weddingContent">
 
   <div class="wedding-card">
 
@@ -196,6 +244,7 @@ body{
     </div>
 
     <h2>Countdown To Our Wedding</h2>
+
     <div id="countdown">Loading...</div>
 
     <div class="quote">
@@ -206,22 +255,22 @@ body{
 
   </div>
 
-</div>
+</section>
 
 <script>
 
-/* OPEN */
 function openInvitation(){
   document.getElementById("openScreen").style.display = "none";
   document.getElementById("weddingContent").style.display = "block";
   updateCountdown();
 }
 
-/* COUNTDOWN */
 const countdownEl = document.getElementById("countdown");
+
 const weddingDate = new Date("2026-11-28T19:00:00+05:30").getTime();
 
 function updateCountdown(){
+
   const now = new Date().getTime();
   const distance = weddingDate - now;
 
@@ -230,16 +279,16 @@ function updateCountdown(){
     return;
   }
 
-  const d = Math.floor(distance / (1000*60*60*24));
-  const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-  const m = Math.floor((distance%(1000*60*60))/(1000*60));
-  const s = Math.floor((distance%(1000*60))/1000);
+  const days = Math.floor(distance / (1000*60*60*24));
+  const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+  const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+  const seconds = Math.floor((distance % (1000*60)) / 1000);
 
   countdownEl.innerHTML =
-    d + " Days " + h + " Hours " + m + " Minutes " + s + " Seconds";
+    days + " Days " + hours + " Hours " + minutes + " Minutes " + seconds + " Seconds";
 }
 
-setInterval(updateCountdown,1000);
+setInterval(updateCountdown, 1000);
 
 </script>
 
