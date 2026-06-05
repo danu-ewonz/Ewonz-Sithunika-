@@ -1,4 +1,4 @@
-/* BODY BACKGROUND FIX */
+/* 🌸 BODY BACKGROUND */
 body{
   margin:0;
   font-family: Georgia, serif;
@@ -22,16 +22,54 @@ body::before{
   z-index:-1;
 }
 
-/* CARD FIX (THIS IS YOUR MAIN PROBLEM) */
+/* 🔥 OPEN SCREEN FIX (IMPORTANT) */
+#openScreen{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+
+  /* FIX: stop background image bleeding */
+  background: #0b0b0b;
+  position: relative;
+  z-index: 2;
+}
+
+/* OPEN BUTTON */
+.open-btn{
+  padding:18px 45px;
+  font-size:22px;
+  border:2px solid gold;
+  background:transparent;
+  color:gold;
+  cursor:pointer;
+  border-radius:40px;
+  transition:0.3s;
+  margin-top:20px;
+}
+
+.open-btn:hover{
+  background:gold;
+  color:#000;
+  box-shadow:0 0 25px gold;
+  transform:scale(1.05);
+}
+
+/* 💍 MAIN CONTENT */
+#weddingContent{
+  display:none;
+}
+
+/* ✨ WEDDING CARD FIX */
 .wedding-card{
   text-align:center;
   padding:30px;
   margin:40px auto;
   max-width:500px;
 
-  /* ❌ REMOVE WHITE BLOCK ISSUE */
-  background: rgba(255,255,255,0.08) !important;
-
+  background: rgba(255,255,255,0.08);
   border: 2px solid rgba(255,215,0,0.6);
   border-radius: 20px;
 
@@ -39,22 +77,44 @@ body::before{
   box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
-/* TEXT FIX */
+/* TEXT */
 .month{
+  font-size:18px;
+  letter-spacing:3px;
   color:gold;
+}
+
+.date{
+  font-size:60px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+.details, .venue{
+  font-size:16px;
+  margin:10px 0;
+  color:#ddd;
 }
 
 .names{
+  font-size:26px;
+  margin:20px 0;
   color:gold;
 }
 
-/* BUTTON FIX */
-.open-btn{
-  border:2px solid gold;
-  background:transparent;
-  color:gold;
+#countdown{
+  font-size:22px;
+  margin-top:15px;
 }
-.open-btn:hover{
-  background:gold;
-  color:#000;
+
+.quote{
+  margin-top:20px;
+  font-style:italic;
+  color:#aaa;
+}
+
+.flower{
+  margin-top:20px;
+  font-size:20px;
+  color:gold;
 }
