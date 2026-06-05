@@ -1,60 +1,20 @@
-/* 🌑 PAGE */
-body{
-  margin:0;
-  font-family: Georgia, serif;
-  background:#0b0b0b;
-  color:#fff;
-}
-
-/* 🔥 OPEN SCREEN */
-#openScreen{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  background:#000;
-}
-
-/* BUTTON */
-.open-btn{
-  padding:18px 45px;
-  border:2px solid gold;
-  background:transparent;
-  color:gold;
-  border-radius:40px;
-  cursor:pointer;
-}
-
-/* 💍 CARD (FINAL FIXED STRUCTURE) */
 .wedding-card{
-  text-align:center;
-  padding:40px;
-  margin:60px auto;
-  max-width:600px;
-
   position:relative;
-  border-radius:20px;
-
-  overflow:hidden; /* 🔥 IMPORTANT - NO LEAK */
-
-  /* 🔥 GOLD BORDER */
+  overflow:hidden;
   border:3px solid gold;
-  box-shadow:0 0 20px rgba(255,215,0,0.25);
+  border-radius:20px;
 }
 
-/* 🔥 BACKGROUND IMAGE (STRICTLY INSIDE CARD ONLY) */
 .wedding-card::before{
   content:"";
   position:absolute;
   inset:0;
 
-  background: url("file_00000000c388722f97453bfd91d1655b.png") center/cover no-repeat;
+  background: url("./file_00000000c388722f97453bfd91d1655b.png") center/cover no-repeat;
 
   z-index:0;
 }
 
-/* 🔥 DARK LAYER */
 .wedding-card::after{
   content:"";
   position:absolute;
@@ -63,51 +23,7 @@ body{
   z-index:1;
 }
 
-/* 🔥 TEXT ALWAYS TOP */
 .wedding-card *{
   position:relative;
   z-index:2;
-  text-shadow:0 3px 10px rgba(0,0,0,0.8);
-}
-
-/* TEXT COLORS */
-.month{
-  font-size:18px;
-  letter-spacing:3px;
-  color:gold;
-}
-
-.date{
-  font-size:70px;
-  font-weight:bold;
-  margin:10px 0;
-}
-
-.details, .venue{
-  font-size:16px;
-  color:#eee;
-  margin:10px 0;
-}
-
-.names{
-  font-size:28px;
-  color:gold;
-  margin:20px 0;
-}
-
-#countdown{
-  font-size:24px;
-  margin-top:15px;
-}
-
-.quote{
-  margin-top:20px;
-  font-style:italic;
-  color:#ccc;
-}
-
-.flower{
-  margin-top:20px;
-  font-size:22px;
-  color:gold;
 }
