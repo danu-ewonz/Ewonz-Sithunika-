@@ -15,38 +15,9 @@ body{
     text-align:center;
 }
 
-/* 🔽 TEXT (LOW SHINE ONLY) */
-.main-title,
-.sub-title,
-.invite-text,
-.month,
-.date,
-.details,
-.venue,
-.names,
-#countdown,
-.quote,
-.flower,
-h2{
-    animation:softGlow 5s ease-in-out infinite; /* slower + low shine */
-}
-
-@keyframes softGlow{
-    0%,100%{
-        text-shadow:0 0 3px rgba(255,255,255,0.15);
-        opacity:0.9;
-    }
-    50%{
-        text-shadow:0 0 6px rgba(255,255,255,0.25);
-        opacity:1;
-    }
-}
-
-/* TITLES */
 .main-title{
     font-size:28px;
     color:#F7E7CE;
-    margin-bottom:10px;
 }
 
 .sub-title{
@@ -81,7 +52,7 @@ h2{
     display:none;
 }
 
-/* CARD WITH YOUR BACKGROUND IMAGE */
+/* CARD */
 .wedding-card{
     max-width:650px;
     margin:40px auto;
@@ -93,12 +64,15 @@ h2{
     overflow:hidden;
 }
 
-/* YOUR BACKGROUND IMAGE */
+/* ✅ BACKGROUND IMAGE FIX */
 .wedding-card::before{
     content:"";
     position:absolute;
     inset:0;
-    background:url("file_00000000c388722f97453bfd91d1655b.png") center/cover no-repeat;
+    background-image:url("./file_00000000c388722f97453bfd91d1655b.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
     z-index:0;
 }
 
@@ -116,7 +90,7 @@ h2{
     z-index:2;
 }
 
-/* TEXT STYLE */
+/* TEXT */
 .month{
     color:#F7E7CE;
     letter-spacing:2px;
@@ -148,9 +122,4 @@ h2{
     margin-top:20px;
     color:#ccc;
     font-style:italic;
-}
-
-.flower{
-    margin-top:15px;
-    color:#F7E7CE;
-}
+    }
