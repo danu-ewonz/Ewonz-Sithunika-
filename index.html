@@ -1,15 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wedding Countdown</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Countdown</title>
 
-  <!-- CSS link -->
-  <link rel="stylesheet" href="style.css">
+<style>
+body{
+  margin:0;
+  background:#0b0b0b;
+  color:#fff;
+  font-family: Georgia, serif;
+}
+
+/* 🔥 OPEN SCREEN */
+#openScreen{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background: radial-gradient(circle, #1a1a1a, #000);
+  text-align:center;
+}
+
+.open-btn{
+  padding:18px 45px;
+  font-size:22px;
+  border:2px solid gold;
+  background:transparent;
+  color:gold;
+  cursor:pointer;
+  border-radius:40px;
+  transition:0.3s;
+  margin-top:20px;
+}
+
+.open-btn:hover{
+  background:gold;
+  color:#000;
+  box-shadow:0 0 25px gold;
+  transform:scale(1.05);
+}
+
+/* 💍 MAIN CONTENT */
+#weddingContent{
+  display:none;
+}
+
+.wedding-card{
+  text-align:center;
+  padding:30px;
+}
+
+/* Your original design elements */
+.month{
+  font-size:18px;
+  letter-spacing:2px;
+  color:gold;
+}
+
+.date{
+  font-size:50px;
+  font-weight:bold;
+  margin:10px 0;
+  color:#fff;
+}
+
+.details{
+  font-size:16px;
+  margin:10px 0;
+  color:#ddd;
+}
+
+.venue{
+  font-size:16px;
+  margin:10px 0;
+  color:#ccc;
+}
+
+.names{
+  font-size:24px;
+  margin:20px 0;
+  color:gold;
+}
+
+h2{
+  margin-top:20px;
+}
+
+#countdown{
+  font-size:22px;
+  margin-top:15px;
+  color:#fff;
+}
+
+.quote{
+  margin-top:20px;
+  font-style:italic;
+  color:#aaa;
+}
+
+.flower{
+  margin-top:20px;
+  font-size:20px;
+  color:gold;
+}
+</style>
+
 </head>
 
 <body>
+
+<!-- 🔥 OPEN SCREEN -->
+<div id="openScreen">
+  <h1 style="color:gold;">Wedding Invitation</h1>
+  <button class="open-btn" onclick="openInvitation()">
+    Open Invitation
+  </button>
+</div>
+
+<!-- 💍 MAIN CONTENT -->
+<div id="weddingContent">
 
 <div class="wedding-card">
 
@@ -27,9 +139,8 @@
     Piliyandala, Colombo, Sri Lanka
   </div>
 
-  <!-- 💍 NAMES -->
   <div class="names">
-    Danu Ewonz ❤️ Sadali Sithunika
+    Danu Ewonz & Sadali Sithunika
   </div>
 
   <h2>Countdown To Our Wedding</h2>
@@ -44,35 +155,43 @@
 
 </div>
 
+</div>
+
 <script>
+
+/* 🔥 OPEN BUTTON FUNCTION */
+function openInvitation(){
+  document.getElementById("openScreen").style.display = "none";
+  document.getElementById("weddingContent").style.display = "block";
+}
+
+/* ⏳ COUNTDOWN */
 const countdownEl = document.getElementById("countdown");
 
 const weddingDate = new Date("2026-11-28T19:00:00+05:30").getTime();
 
-function updateCountdown() {
+function updateCountdown(){
 
   const now = new Date().getTime();
   const distance = weddingDate - now;
 
-  if (distance <= 0) {
+  if(distance <= 0){
     countdownEl.innerHTML = "We Are Married ❤️";
     return;
   }
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  const days = Math.floor(distance / (1000*60*60*24));
+  const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+  const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+  const seconds = Math.floor((distance % (1000*60)) / 1000);
 
   countdownEl.innerHTML =
-    days + " Days " +
-    hours + " Hours " +
-    minutes + " Minutes " +
-    seconds + " Seconds";
+    days+" Days "+hours+" Hours "+minutes+" Minutes "+seconds+" Seconds";
 }
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
 </script>
 
 </body>
