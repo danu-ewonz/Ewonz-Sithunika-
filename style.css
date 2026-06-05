@@ -1,0 +1,68 @@
+body{
+    margin:0;
+    background:#f8f4ee;
+    color:#5a4634;
+    text-align:center;
+    font-family:'Montserrat', sans-serif;
+}
+
+.hero{
+    padding:80px 20px;
+}
+
+.family{
+    letter-spacing:3px;
+    font-size:12px;
+}
+
+.names h1{
+    font-family:'Playfair Display', serif;
+    font-size:72px;
+    font-weight:500;
+    margin:0;
+    line-height:1.2;
+}
+
+.and{
+    font-size:40px;
+    color:#c8a96b;
+    margin:15px 0;
+}
+
+.invite{
+    margin-top:30px;
+    line-height:2;
+    letter-spacing:2px;
+}
+
+.month{
+    margin-top:40px;
+    letter-spacing:4px;
+}
+
+.date{
+    font-size:90px;
+    color:#c8a96b;
+    font-family:'Playfair Display', serif;
+}
+
+.details{
+    line-height:2;
+}
+
+.venue{
+    margin-top:30px;
+    font-size:18px;
+}
+
+.quote{
+    margin-top:40px;
+    font-style:italic;
+}
+
+#countdown{
+    font-size:28px;
+    margin-top:20px;
+    color:#c8a96b;
+    font-family:'Playfair Display', serif;
+}
