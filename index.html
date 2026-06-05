@@ -7,28 +7,12 @@
 
 <style>
 
-/* 🌑 PAGE */
+/* 🌑 BODY */
 body{
   margin:0;
   font-family: Georgia, serif;
   background:#0b0b0b;
   color:#fff;
-  overflow:hidden;
-}
-
-/* 🌸 FLOATING PETALS */
-.petal{
-  position:absolute;
-  top:-10px;
-  font-size:20px;
-  color:gold;
-  animation: fall linear infinite;
-  opacity:0.8;
-}
-
-@keyframes fall{
-  0%{transform:translateY(-10vh) rotate(0deg);}
-  100%{transform:translateY(110vh) rotate(360deg);}
 }
 
 /* 🔥 OPEN SCREEN */
@@ -37,34 +21,32 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  flex-direction:column;
   background:#000;
+  flex-direction:column;
 }
 
-/* TYPE TEXT */
+/* TITLE */
 .main-title{
-  font-size:30px;
+  font-size:28px;
   color:gold;
   text-align:center;
-  white-space:nowrap;
-  overflow:hidden;
-  border-right:2px solid gold;
-  width:0;
-  animation: typing 3s steps(30,end) forwards, blink 0.7s infinite;
+  margin-bottom:10px;
 }
 
-@keyframes typing{
-  from{width:0;}
-  to{width:100%;}
+/* SUB TEXT */
+.sub-title{
+  font-size:18px;
+  color:#fff;
 }
 
-@keyframes blink{
-  50%{border-color:transparent;}
+.invite-text{
+  font-size:14px;
+  color:#ccc;
+  margin-bottom:20px;
 }
 
 /* BUTTON */
 .open-btn{
-  margin-top:20px;
   padding:16px 45px;
   border:2px solid gold;
   background:transparent;
@@ -79,10 +61,9 @@ body{
   color:#000;
 }
 
-/* 💍 MAIN CONTENT */
+/* 💍 MAIN */
 #weddingContent{
   display:none;
-  animation: fadeIn 1.5s ease forwards;
 }
 
 /* CARD */
@@ -97,11 +78,9 @@ body{
 
   border-radius:20px;
   border:3px solid gold;
-
-  animation: zoomIn 1.2s ease;
 }
 
-/* BACKGROUND IMAGE */
+/* BACKGROUND IMAGE INSIDE CARD ONLY */
 .wedding-card::before{
   content:"";
   position:absolute;
@@ -110,7 +89,7 @@ body{
   z-index:0;
 }
 
-/* DARK LAYER */
+/* DARK OVERLAY */
 .wedding-card::after{
   content:"";
   position:absolute;
@@ -119,46 +98,54 @@ body{
   z-index:1;
 }
 
-/* TEXT ABOVE */
+/* TEXT ON TOP */
 .wedding-card *{
   position:relative;
   z-index:2;
 }
 
-/* NAME GLow */
+/* TEXT STYLE */
+.month{
+  font-size:18px;
+  color:gold;
+  letter-spacing:2px;
+}
+
+.date{
+  font-size:65px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+.details,
+.venue{
+  font-size:16px;
+  color:#eee;
+  margin:10px 0;
+}
+
 .names{
   font-size:26px;
   color:gold;
-  animation: glow 2s infinite;
+  margin:20px 0;
 }
 
-/* COUNTDOWN */
 #countdown{
   font-size:22px;
-  animation: pulse 1.5s infinite;
+  margin-top:15px;
+  color:#fff;
 }
 
-/* ANIMATIONS */
-@keyframes fadeIn{
-  from{opacity:0;}
-  to{opacity:1;}
+.quote{
+  margin-top:20px;
+  font-style:italic;
+  color:#ccc;
 }
 
-@keyframes zoomIn{
-  from{transform:scale(0.8); opacity:0;}
-  to{transform:scale(1); opacity:1;}
-}
-
-@keyframes glow{
-  0%{text-shadow:0 0 5px gold;}
-  50%{text-shadow:0 0 20px gold;}
-  100%{text-shadow:0 0 5px gold;}
-}
-
-@keyframes pulse{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.05);}
-  100%{transform:scale(1);}
+.flower{
+  margin-top:20px;
+  font-size:20px;
+  color:gold;
 }
 
 </style>
@@ -167,17 +154,18 @@ body{
 
 <body>
 
-<!-- 🌸 PETALS (JS will add more) -->
-<div class="petal">❀</div>
-<div class="petal" style="left:20%; animation-duration:6s;">❀</div>
-<div class="petal" style="left:40%; animation-duration:8s;">❀</div>
-<div class="petal" style="left:60%; animation-duration:7s;">❀</div>
-<div class="petal" style="left:80%; animation-duration:9s;">❀</div>
-
 <!-- 🔥 OPEN SCREEN -->
 <div id="openScreen">
 
-  <h1 class="main-title" id="typeText"></h1>
+  <h1 class="main-title">
+    Danu Ewonz & Sadali Sithunika
+  </h1>
+
+  <p class="sub-title">We are getting married</p>
+
+  <p class="invite-text">
+    You are warmly invited to our special day
+  </p>
 
   <button class="open-btn" onclick="openInvitation()">
     Open Invitation
@@ -207,7 +195,7 @@ body{
       Danu Ewonz & Sadali Sithunika
     </div>
 
-    <h2>Countdown</h2>
+    <h2>Countdown To Our Wedding</h2>
     <div id="countdown">Loading...</div>
 
     <div class="quote">
@@ -222,23 +210,11 @@ body{
 
 <script>
 
-/* TYPE EFFECT */
-const text = "Danu Ewonz & Sadali Sithunika";
-let i = 0;
-
-function type(){
-  if(i < text.length){
-    document.getElementById("typeText").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type, 100);
-  }
-}
-type();
-
 /* OPEN */
 function openInvitation(){
   document.getElementById("openScreen").style.display = "none";
   document.getElementById("weddingContent").style.display = "block";
+  updateCountdown();
 }
 
 /* COUNTDOWN */
@@ -259,7 +235,8 @@ function updateCountdown(){
   const m = Math.floor((distance%(1000*60*60))/(1000*60));
   const s = Math.floor((distance%(1000*60))/1000);
 
-  countdownEl.innerHTML = d+" Days "+h+" Hours "+m+" Minutes "+s+" Seconds";
+  countdownEl.innerHTML =
+    d + " Days " + h + " Hours " + m + " Minutes " + s + " Seconds";
 }
 
 setInterval(updateCountdown,1000);
