@@ -1,38 +1,163 @@
+/* 🌑 BODY */
+body{
+  margin:0;
+  font-family: Georgia, serif;
+  background:#0b0b0b;
+  color:#fff;
+}
+
+/* 🔥 OPEN SCREEN */
+#openScreen{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  background:#000;
+  text-align:center;
+}
+
+.main-title{
+  font-size:28px;
+  color:gold;
+  margin-bottom:10px;
+}
+
+.sub-title{
+  font-size:18px;
+  color:#fff;
+}
+
+.invite-text{
+  font-size:14px;
+  color:#ccc;
+  margin-bottom:20px;
+}
+
+/* 💎 OPEN BUTTON */
 .open-btn{
-.typing {
-display: inline-block;
-white-space: nowrap;
-overflow: hidden;
-border-right: 2px solid gold;
-animation: typing 2s steps(5) infinite, blink 0.7s infinite;
+  padding:16px 55px;
+  font-size:18px;
+  font-weight:bold;
+  letter-spacing:3px;
+
+  border:2px solid gold;
+  border-radius:50px;
+
+  background:linear-gradient(145deg, #111, rgba(255,215,0,0.1));
+  color:gold;
+
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+
+  transition:0.4s ease;
+  box-shadow:0 0 15px rgba(255,215,0,0.25);
+
+  animation: floatBtn 3s infinite ease-in-out;
 }
 
-@keyframes typing {
-0% { width: 0; }
-50% { width: 100%; }
-100% { width: 0; }
-}
-
-@keyframes blink {
-50% { border-color: transparent; }
-}
-
-border:2px solid gold;
-background:linear-gradient(145deg, transparent, rgba(255,215,0,0.1));
-color:gold;
-
-border-radius:50px;
-cursor:pointer;
-
-transition:0.4s ease;
-letter-spacing:1px;
-
-box-shadow:0 0 10px rgba(255,215,0,0.2);
-}
-
+/* hover */
 .open-btn:hover{
-background:gold;
-color:#000;
-transform:scale(1.08);
-box-shadow:0 0 25px gold;
+  background:gold;
+  color:#000;
+  transform:scale(1.08);
+  box-shadow:0 0 30px gold, 0 0 60px rgba(255,215,0,0.4);
 }
+
+/* shimmer */
+.open-btn::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition:0.5s;
+}
+
+.open-btn:hover::before{
+  left:100%;
+}
+
+/* typing effect */
+.typing{
+  display:inline-block;
+  white-space:nowrap;
+  overflow:hidden;
+  border-right:2px solid gold;
+  animation:typing 2s steps(5) infinite, blink 0.7s infinite;
+}
+
+@keyframes typing{
+  0%{width:0;}
+  50%{width:100%;}
+  100%{width:0;}
+}
+
+@keyframes blink{
+  50%{border-color:transparent;}
+}
+
+@keyframes floatBtn{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-4px);}
+  100%{transform:translateY(0px);}
+}
+
+/* 💍 MAIN CONTENT */
+#weddingContent{
+  display:none;
+  padding:20px;
+}
+
+/* CARD */
+.wedding-card{
+  text-align:center;
+  padding:40px;
+  margin:60px auto;
+  max-width:600px;
+
+  position:relative;
+  overflow:hidden;
+
+  border-radius:20px;
+  border:3px solid gold;
+}
+
+/* BACKGROUND IMAGE */
+.wedding-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("./file_00000000c388722f97453bfd91d1655b.png") center/cover no-repeat;
+  z-index:0;
+}
+
+.wedding-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:1;
+}
+
+.wedding-card *{
+  position:relative;
+  z-index:2;
+}
+
+.month{ font-size:18px; color:gold; letter-spacing:2px; }
+
+.date{ font-size:65px; font-weight:bold; margin:10px 0; }
+
+.details, .venue{ font-size:16px; color:#eee; margin:10px 0; }
+
+.names{ font-size:26px; color:gold; }
+
+#countdown{ font-size:22px; color:#fff; margin-top:10px; }
+
+.quote{ margin-top:20px; font-style:italic; color:#ccc; }
+
+.flower{ margin-top:20px; font-size:20px; color:gold; }
