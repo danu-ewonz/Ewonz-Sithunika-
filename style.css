@@ -26,7 +26,7 @@ body{
   cursor:pointer;
 }
 
-/* 💍 CARD (STRICT BORDER CLIP FIX) */
+/* 💍 CARD */
 .wedding-card{
   text-align:center;
   padding:40px;
@@ -34,14 +34,17 @@ body{
   max-width:600px;
 
   position:relative;
-
   border-radius:20px;
-  overflow:hidden;   /* 🔥 MAIN FIX */
+  overflow:hidden;
+
+  /* 🔥 BORDER BACK */
+  border:3px solid gold;
+  box-shadow:0 0 15px rgba(255,215,0,0.25);
 
   background:#111;
 }
 
-/* 🔥 IMAGE INSIDE ONLY */
+/* 🔥 IMAGE INSIDE CARD ONLY */
 .wedding-card::before{
   content:"";
   position:absolute;
@@ -63,7 +66,7 @@ body{
   z-index:1;
 }
 
-/* TEXT ABOVE EVERYTHING */
+/* TEXT ON TOP */
 .wedding-card *{
   position:relative;
   z-index:2;
